@@ -1,0 +1,113 @@
+:root {
+  --navy: #1b2a6b;
+  --orange: #f97316;
+  --bg: #f3f7ff;
+  --error: #c62828;
+  --ok: #2e7d32;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--navy);
+  line-height: 1.6;
+}
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem;
+}
+main h1 { margin-top: 0; }
+.reset-btn {
+  margin-top: 1.5rem;
+  background: none;
+  border: 1px dashed var(--navy);
+  color: var(--navy);
+  padding: .5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+}
+
+/* ---------- Modal ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 18, 50, .6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .3s ease, visibility .3s ease;
+  z-index: 1000;
+}
+.overlay.open { opacity: 1; visibility: visible; }
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem 1.75rem 1.75rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+  transform: translateY(20px) scale(.97);
+  transition: transform .3s ease;
+}
+.overlay.open .modal { transform: none; }
+
+.modal h2 { margin: 0 0 .5rem; font-size: 1.5rem; }
+.modal p  { margin: 0 0 1.25rem; color: #4a5680; }
+
+.close-btn {
+  position: absolute;
+  top: .6rem;
+  right: .8rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--navy);
+  cursor: pointer;
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+}
+.close-btn:hover { background: #eef2ff; }
+
+label { display: block; font-weight: 600; margin-bottom: .35rem; }
+input[type="email"] {
+  width: 100%;
+  padding: .7rem .85rem;
+  font: inherit;
+  border: 2px solid #c9d3f0;
+  border-radius: 8px;
+}
+input[type="email"].invalid { border-color: var(--error); }
+input[type="email"].valid   { border-color: var(--ok); }
+
+.message { min-height: 1.4rem; margin: .4rem 0 .9rem; font-size: .9rem; }
+.message.error   { color: var(--error); }
+.message.success { color: var(--ok); font-weight: 600; }
+
+.submit-btn {
+  width: 100%;
+  padding: .8rem;
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.submit-btn:hover { filter: brightness(1.05); }
+
+:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay, .modal { transition: none; }
+}

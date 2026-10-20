@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter Signup Modal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main>
+    <h1>Welcome to my page</h1>
+    <p>Stay on this page for a few seconds and a newsletter signup modal will pop up.
+       Close it (✕ button, overlay click, or Esc key) and it will not come back on refresh.</p>
+    <button class="reset-btn" id="resetBtn" type="button">Reset (for testing)</button>
+  </main>
+
+  <div class="overlay" id="overlay">
+    <div class="modal" role="dialog" aria-modal="true"
+         aria-labelledby="modalTitle" aria-describedby="modalDesc">
+      <button class="close-btn" id="closeBtn" type="button" aria-label="Close newsletter signup">&times;</button>
+
+      <h2 id="modalTitle">Join our newsletter</h2>
+      <p id="modalDesc">Get tips and updates straight to your inbox. No spam, ever.</p>
+
+      <form id="signupForm" novalidate>
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com"
+               autocomplete="email" aria-describedby="formMessage" required>
+        <div class="message" id="formMessage" role="status" aria-live="polite"></div>
+        <button type="submit" class="submit-btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
